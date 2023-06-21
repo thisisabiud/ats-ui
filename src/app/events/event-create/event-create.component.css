@@ -1,0 +1,44 @@
+mat-form-field{
+    width: 40vw;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form h2{
+    float: left;
+    
+}
+
+:host button{
+    margin-top: 1rem;
+    float: right;
+}
+.time{
+    display: flex;
+}
+
+.time-field{
+    width: 23vw;
+}
+
+.time-field:nth-child(1){
+    margin-right: 3rem;
+}
+
+.buttons:nth-child(1){
+    margin-right: 2rem;
+}
+.date-time{
+    display: flex;
+    flex-direction: column;
+}
+.date-field{
+   width: 60%;
+}
+
+.time-field{
+    width: 40%;
+}

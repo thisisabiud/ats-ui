@@ -1,0 +1,8 @@
+<ng-container *ngIf="item">
+    <a mat-list-item routerLink="{{ item.path }}" class="nav-item">
+        <span>
+            <mat-icon>{{ item.icon }}</mat-icon>
+        </span>
+        {{ item.title }}
+    </a>
+</ng-container>

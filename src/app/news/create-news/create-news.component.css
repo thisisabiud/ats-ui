@@ -1,0 +1,19 @@
+.buttons{
+    float: right!important;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+mat-form-field{
+    width: 50vw;
+}
+.header{
+    font-weight: 600;
+}

@@ -1,0 +1,39 @@
+<ng-container *ngIf="event">
+    <button (click)="back()" mat-flat-button class="button" class="back"> &lt;&lt; Return</button>   
+    <mat-card class="event">
+        <div>
+
+            <img class="border" src="{{ event.image}}" width="400px" height="200px" alt="">
+            <div class="title-date">
+                <p class="date">
+                    {{ event.start_time | date }} from {{ event.start_time }} hours to {{ event.end_time }} hours.
+                </p>
+                <h2>{{ event.name | titlecase }}</h2>
+            </div>
+    
+        </div>
+        <div class="event-right">
+            <p><span style="font-weight: bold;">Location: </span><span style="font-weight: 500; font-size: small;">{{ event.location }}</span></p>
+            <p>
+                {{ event.description }}
+            </p>
+            <p class="check-box">
+                <span style="font-weight: bold;">Can Attend: </span>
+                <mat-checkbox></mat-checkbox>
+            </p>
+        </div>
+        
+    </mat-card>
+
+    <div class="buttons">
+            <button mat-raised-button color="primary" [routerLink]="['update']" class="left-button">
+                Edit
+            </button>       
+     
+            <button mat-raised-button color="warn" (click)="delete(event.id)">
+              Delete
+            </button> 
+    </div>    
+</ng-container>
+
+<router-outlet></router-outlet>

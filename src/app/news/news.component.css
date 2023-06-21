@@ -1,0 +1,12 @@
+:host a{
+    text-decoration: none;
+}
+
+.create-button{
+    float: right;
+}
+
+.news-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}

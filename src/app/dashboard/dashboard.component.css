@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.item{
+    width: 300px;
+    padding: 5rem;
+}
+
+app-metrics{
+    margin: 3rem;
+    display: block;
+}
+

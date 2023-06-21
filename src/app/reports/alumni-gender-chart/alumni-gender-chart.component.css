@@ -1,0 +1,10 @@
+canvas{
+    padding: 3rem;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    font-size: small;
+    color: rgb(101, 101, 101);
+}

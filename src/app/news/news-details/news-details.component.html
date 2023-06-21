@@ -1,0 +1,24 @@
+<button (click)="back()" mat-flat-button class="button" class="back">
+  &lt;&lt; Return
+</button>
+
+<div>
+    <app-comments></app-comments>
+  <mat-card class="news-details">
+    <div>
+      <img src="{{ news?.image }}" class="image" />
+      <div class="heading-date">
+        <p class="publish">
+          Published at {{ news?.pub_date | date }} by {{ news?.author }}.
+        </p>
+        <h1 class="heading">{{ news?.title }}</h1>
+      </div>
+    </div>
+    <div class="news-body">
+      {{ news?.content }}
+    </div>
+  </mat-card>
+  
+</div>
+
+<!-- <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment> -->

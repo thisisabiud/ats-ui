@@ -1,0 +1,25 @@
+<ng-container *ngIf="news_item">
+    <!-- <a [routerLink]="[news_item.id]" class="spacer">
+        <mat-list>
+            <mat-list-item>
+                <div matListItemTitle>{{ news_item.heading }}</div>
+                <div matListItemLine class="date">{{ news_item.publish | date }}</div>
+                <span matListItemLine lines="1" class="description">{{ news_item.body| truncate:[40] }}</span>
+
+            </mat-list-item>
+        </mat-list>
+        <mat-divider></mat-divider>
+    </a> -->
+
+        <a [routerLink]="[news_item.id]">
+            <mat-card> 
+                <img src="{{ news_item.image }}" alt="">
+                <div class="card-footer">
+                    <h1 class="header">{{ news_item.title | titlecase}}</h1>
+                    <p class="date">{{ news_item.pub_date | date}}</p>
+                </div>
+                
+            </mat-card>
+        </a>
+    
+</ng-container>

@@ -1,0 +1,20 @@
+.create-button{
+    top: 1rem;
+    right: 1rem;
+    float: right;
+    text-decoration: none;
+    text-align: right;
+    font-weight: bold;
+}
+
+:host a{
+    text-decoration: none;
+}
+
+mat-spinner{
+    margin: auto;
+}
+.news-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}

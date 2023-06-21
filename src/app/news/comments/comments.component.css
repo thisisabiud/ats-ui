@@ -1,0 +1,17 @@
+:host{
+    background-color: rgb(241, 239, 239);
+    padding: .5rem;
+    /* position: fixed; */
+}
+
+.comments{
+    padding: 1rem .5rem;
+    font-weight: 700;
+    font-size: larger;
+}
+.send-comment{
+    margin-top: .5rem;
+}
+mat-form-field{
+    width: 80%;
+}

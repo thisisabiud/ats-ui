@@ -1,0 +1,16 @@
+<div class="form-wrapper" [formGroup]="authForm">
+    <p class="login">Login</p>
+    <p>
+        <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" placeholder="2020-04-11046">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input appearance="fill" matInput type="password" formControlName="password" placeholder="Enter your password">
+        </mat-form-field>
+    </p>
+    <button mat-raised-button color="primary" (click)="submit()">Login</button>
+</div>

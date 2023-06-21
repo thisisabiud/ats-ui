@@ -1,0 +1,29 @@
+mat-card{
+    margin: 1rem;
+    width: 260px;
+    display: flex;
+    flex-direction: row;
+    padding: .5rem;
+}
+
+.left img{
+    width: 40px;
+    height: 40px;
+}
+.content{
+    margin-left: 2rem;
+}
+.content p{
+    color: rgb(113, 113, 113);
+    font-weight: 400;
+}
+.content h1{
+    color: black;
+    font-weight: 500;
+}
+/* .icon{
+    float: right;
+}
+mat-icon{
+    vertical-align: middle;
+} */

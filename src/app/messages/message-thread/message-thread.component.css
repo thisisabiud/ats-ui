@@ -1,0 +1,88 @@
+.convo-wrapper{
+    display: flex;
+    justify-content: center;
+}
+.thread {
+  /* height: 50vh; */
+  height: 75vh;
+  width: 40svw;
+  overflow: scroll;
+}
+
+.thread-header {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  height: 15vh;
+  background-color: rgb(230, 230, 230);
+}
+
+.texts-list {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  /* height: 100%; */
+  padding: 1em;
+  background-color: white;
+}
+.input {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1em;
+  background-color: #fffdfd;
+  padding: .5em;
+}
+.text{
+    border-radius: 10px;
+    border: none;
+    width: 85%;
+    background-color: #f1f0f0;
+}
+.sender {
+  display: flex;
+  flex-direction: column;
+  background-color: #3947c5;
+  padding: .25em .5em;
+  align-self: flex-end;
+  color: white;
+  border-radius: 10px 10px 0 10px;
+  margin-right: 13px;
+  font-size: 13px;
+  margin: 0.25rem 0.25rem;
+  text-align: right;
+  max-width: 70%;
+}
+.reciever {
+  background-color: #f1f0f0;
+  display: flex;
+  margin: 0.25rem 0.25rem;
+  padding: 0.5rem;
+  flex-direction: column;
+  max-width: 70%;
+  align-self: flex-start;
+  color: black;
+  border-radius: 10px 10px 10px 0;
+  font-size: 13px;
+}
+.time{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    font-size:x-small;
+    text-align: end;
+    margin-top: -1em;
+    margin-bottom: -.5em;
+    opacity: 0.6;
+}
+.send-button {
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+

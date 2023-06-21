@@ -1,0 +1,33 @@
+:host a{
+    text-decoration: none;
+}
+
+.date{
+    font-size: small;
+    font-style: italic;
+    color: rgb(166, 166, 166);
+    margin-top: -1rem;
+    
+}
+
+img{
+    width: 420px;
+    height: 200px;
+    border-radius: 1rem 1rem 0 0;
+}
+
+mat-card{
+    display: flex;
+    margin: 1.5rem;
+    width: 420px;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+
+.header{
+    font-size: large;
+    font-weight: 900;
+    color: black;
+}
+.card-footer{
+    padding-left: 1rem;
+}

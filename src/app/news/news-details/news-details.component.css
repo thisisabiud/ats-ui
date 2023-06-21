@@ -1,0 +1,39 @@
+.heading{
+    font-weight: 600;
+}
+.publish{
+    color: rgb(131, 131, 131);
+    font-style: italic;
+}
+
+.body{
+    width: 70vw;
+}
+
+.news-details{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+}
+.image{
+    padding: .5rem 0 .5rem .5rem;
+    width: 400px;
+    height: 200px;
+    border-radius: 3rem 3rem 3rem 3rem;
+}
+
+.news-body{
+    padding: 1.5rem 2rem 1.5rem 1.5rem;
+}
+
+.heading-date{
+    padding-left: 1rem;
+}
+
+app-comments{
+    float: right;
+
+    margin-left: 1rem;
+    width: 23vw;
+    height: fit-content;
+}

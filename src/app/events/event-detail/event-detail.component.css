@@ -1,0 +1,53 @@
+.left-button{
+    margin-right: 1rem;
+}
+.buttons{
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.back{
+    margin-bottom: 1rem;
+}
+
+mat-icon{
+    vertical-align: middle;
+    margin-right: .3rem;
+}
+
+.date{
+    color: rgb(141, 139, 139);
+    font-size: smaller;
+    font-style: italic;
+    font-weight:500;
+}
+.event{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+.border{
+    border-radius: 0 1rem 1rem 0;
+}
+.event-left{
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 3rem 2rem 0;
+}
+
+.event-right{
+   padding: 2rem 1rem 0 1.5rem;
+}
+
+.title-date{
+    padding-left: 1rem;
+}
+
+.check-box{
+    padding: 1rem 2rem 0 0;
+    float: right;
+    bottom: 0;
+}
+

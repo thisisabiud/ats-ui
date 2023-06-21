@@ -1,0 +1,15 @@
+.form-wrapper{
+    display: block;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.login{
+    font-size: xx-large;
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+
+mat-form-field{
+    width: 40%;
+}

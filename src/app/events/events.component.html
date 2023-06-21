@@ -1,0 +1,25 @@
+<div>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <ng-container *ngIf="!loading">
+        <div class="create-button">
+            <a [routerLink]="['create']">
+                <button mat-raised-button color="primary">Add Event</button>
+            </a>
+        </div>
+        <h2 style="margin-bottom: 1rem;" mat-subheader>Events</h2>
+        <h3>Upcoming Event</h3>
+        <ng-container *ngIf="upcoming.length > 0">
+            <div class="news-wrapper">
+                <app-event *ngFor="let event of upcoming | sortByDate" [event]="event"></app-event>
+            </div>
+        </ng-container>
+        <h3 style="margin-top: 1rem;">Past Events</h3>
+        <div class="news-wrapper">
+            <app-event *ngFor="let event of past|sortByDate" [event]="event"></app-event>
+        </div>
+    </ng-container>
+      
+</div>
+<router-outlet></router-outlet>
+
+
