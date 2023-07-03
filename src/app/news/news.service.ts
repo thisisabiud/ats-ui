@@ -18,10 +18,15 @@ export class NewsService {
 
   getOneNews$ = (id: number) => <Observable<NewsInterface>>
   this.http.get<NewsInterface>(`${this.apiUrl}api/feed/${id}`);
+
+  postNews$ = (news: NewsInterface) => <Observable<NewsInterface>>
+  this.http.post<NewsInterface>(this.apiUrl, news);
+
   getComments(id: number): Observable<CommentsInterface[]>{
     return this.http.get<CommentsInterface[]>(`${this.apiUrl}api/feed/${id}/comments`);
   }
 
-  postNews$ = (news: NewsInterface) => <Observable<NewsInterface>>
-  this.http.post<NewsInterface>(this.apiUrl, news);
+  postComment(comment: any, id: number): Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}api/feed/${id}/comments/create/`, comment);
+  }
 }

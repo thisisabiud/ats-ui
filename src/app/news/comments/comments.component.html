@@ -1,12 +1,12 @@
 <p class="comments">{{ comments?.length }} Comment<span *ngIf="comments?.length != 1">s</span></p>
 <app-comment *ngFor="let comment of comments" [comment]="comment"></app-comment>
 <div class="send-comment">
-    <form action="" method="post">
+    <form [formGroup]="commentForm">
         <mat-form-field appearance="outline">
             <mat-label>Comment</mat-label>
-            <input type="text" matInput placeholder="Enter your comment..">
+            <input type="text" formControlName="content" matInput placeholder="Enter your comment..">
         </mat-form-field>
-        <button mat-icon-button>
+        <button [disabled]="commentForm.invalid" mat-icon-button (click)="submitComment()">
             <mat-icon>send</mat-icon>
         </button>
     </form>

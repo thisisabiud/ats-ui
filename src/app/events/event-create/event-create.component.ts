@@ -40,7 +40,7 @@ export class EventCreateComponent {
       is_public: [false]   
 
     });
-    console.log(this.authService.userId);
+    // console.log(this.authService.userId);
   }
   onImageChange(event: any){
     this.uploadedImage = event.target?.files[0];
@@ -54,7 +54,7 @@ export class EventCreateComponent {
     this.formData.append('start_time', this.createEventForm.value.start_time);
     this.formData.append('end_time', this.createEventForm.value.end_time);
     this.formData.append('is_public', this.createEventForm.value.is_public);
-    this.formData.append('created_by',this.authService.userId );
+    // this.formData.append('created_by',this.authService.userId );
     this.formData.append('attendees', []);
     this.formData.append('image', this.uploadedImage);
 

@@ -1,37 +1,46 @@
 <ng-container>
-    <mat-toolbar color="primary">
-        <!-- <button *ngIf="auth$ | async" mat-icon-button (click)="toggleSidenav()"></button> -->
-        <button *ngIf="auth$ | async" mat-icon-button (click)="toggleSidenav()">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span>Alumni Tracking System</span>
-        <span class="spacer"></span>
-        <span>Welcome, {{user}}</span>
-        <button mat-icon-button>
-            <mat-icon>person</mat-icon>
-        </button>
-    </mat-toolbar>
-    <mat-sidenav-container>
-        <!-- <mat-sidenav *ngIf="auth$ | async" class="sidenav" mode="side" #sidenav opened></mat-sidenav> -->
-        <mat-sidenav *ngIf="auth$ | async" class="sidenav" mode="side" #sidenav opened>
-            <mat-nav-list *ngFor="let item of items">
-                <app-nav-link [item]="item"></app-nav-link>
-            </mat-nav-list>
-            
-            <div class="logout">
-                <button class="logout-button"  mat-button (click)="logout()">
-                    <mat-icon>logout</mat-icon> 
-                    <span>Logout</span>
-                    <span class="spacer"></span>    
-                </button>
-               
-            </div>
-        </mat-sidenav>
+  <mat-toolbar color="primary">
+    <!-- <button *ngIf="auth$ | async" mat-icon-button (click)="toggleSidenav()"></button> -->
+    <button *ngIf="user" mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Alumni Tracking System</span>
+    <span class="spacer"></span>
+    <ng-container *ngIf="!user">
+      <span class="welcome-note">Hello, stranger</span>
+    </ng-container>
+    <ng-container *ngIf="user">
+      <span class="welcome-note">Welcome, {{ username }}</span>
+      <button mat-icon-button>
+        <mat-icon>person</mat-icon>
+      </button>
+    </ng-container>
+  </mat-toolbar>
+  <mat-sidenav-container>
+    <!-- <mat-sidenav *ngIf="auth$ | async" class="sidenav" mode="side" #sidenav opened></mat-sidenav> -->
+    <mat-sidenav
+      *ngIf="user"
+      class="sidenav"
+      mode="side"
+      #sidenav
+      opened
+    >
+      <mat-nav-list *ngFor="let item of items">
+        <app-nav-link [item]="item"></app-nav-link>
+      </mat-nav-list>
 
-        <mat-sidenav-content class="display-content">
-                <ng-content select="[display-content]"></ng-content>
-                <app-footer></app-footer>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
-    
+      <div class="logout">
+        <button class="logout-button" mat-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+          <span class="spacer"></span>
+        </button>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="display-content">
+      <ng-content select="[display-content]"></ng-content>
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </ng-container>

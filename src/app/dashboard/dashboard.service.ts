@@ -9,20 +9,15 @@ import { Stats } from '../domain/stats.model';
   providedIn: 'root'
 })
 export class DashboardService {
-  private _alumniUrl = 'api/alumni';
+  private _alumniUrl = 'http://45.79.31.232/accounts/stats';
+  private _alumniUrl_yearly = 'http://45.79.31.232/accounts/yearly-stats';
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {
+    _http.get(this._alumniUrl).subscribe(data => console.log(data));
+    _http.get(this._alumniUrl_yearly).subscribe(data => console.log(data));
+   }
 
-  getAlumni$ = <Observable<Alumnus[]>>
-  this._http.get<Alumnus[]>(this._alumniUrl);
-
-  getAlumniEmployeed$ = <Observable<Alumnus[]>>
-  this.getAlumni$.pipe(
-    map(x => x.filter(o => o.status === Status.EMPLOYEED))
-  );
-
-  getAlumniUnemployeed$ = <Observable<Alumnus[]>>
-  this.getAlumni$.pipe(
-    map(x => x.filter(o => o.status === Status.UNEMPLOYEED))
-  );
+  getEmploymentStats(): Observable<any>{
+    return this._http.get(this._alumniUrl);
+  }
 }

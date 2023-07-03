@@ -1,5 +1,7 @@
+import { User } from "./user.model";
+
 export interface CommentsInterface{
-    author: string;
+    author: User;
     content: string;
     pub_date: Date;
 }

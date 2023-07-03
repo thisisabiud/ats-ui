@@ -8,6 +8,10 @@
     padding-top: 2rem;   
 }
 
+.welcome-note{
+    font-size: small;
+}
+
 .display-content{
     height: 83vh;
     padding: 1em;

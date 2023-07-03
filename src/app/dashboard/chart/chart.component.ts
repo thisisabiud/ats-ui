@@ -21,9 +21,9 @@ export class ChartComponent implements OnInit{
   constructor(private _service: DashboardService){}
  
   ngOnInit(): void {
-    this._service.getAlumni$.subscribe(alumni => {
-      const employeedCount = alumni.filter(e => e.status === Status.EMPLOYEED ).length;
-      const unEmployeedCount = alumni.filter(u => u.status === Status.UNEMPLOYEED ).length;
+    this._service.getEmploymentStats().subscribe(alumni => {
+      const employeedCount = alumni['employment_stats']['Employed'];
+      const unEmployeedCount = alumni['employment_stats']['Unemployed'];
       this.pieChartData.datasets[0].data = [employeedCount, unEmployeedCount];
       this.chart?.update();
     });

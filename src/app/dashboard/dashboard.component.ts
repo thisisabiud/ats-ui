@@ -14,8 +14,8 @@ export class DashboardComponent implements OnInit{
 
   constructor( private _service: DashboardService){}
   ngOnInit(){
-    this._service.getAlumniEmployeed$.subscribe(data => this.emp = data.length);
-    this._service.getAlumniUnemployeed$.subscribe(data => this.unemp = data.length);
+    // this._service.getAlumniEmployeed$.subscribe(data => this.emp = data.length);
+    // this._service.getAlumniUnemployeed$.subscribe(data => this.unemp = data.length);
   }
 }
 

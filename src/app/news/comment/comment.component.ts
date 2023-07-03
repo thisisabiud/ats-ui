@@ -8,5 +8,9 @@ import { CommentsInterface } from 'src/app/domain/comment.model';
 })
 export class CommentComponent {
   @Input() comment?: CommentsInterface;
+  constructor(){
+    console.log(this.comment?.author.email);
+    
+  }
 
 }

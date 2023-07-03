@@ -1,51 +1,53 @@
-import { Component, EventEmitter, Input, OnInit, Output, isDevMode } from '@angular/core';
-import { Card } from '../card/card';
-import { Observable } from 'rxjs';
-import { Alumnus } from 'src/app/domain/alumnus.model';
-import { DashboardService } from '../dashboard.service';
-import { environment } from 'src/enviroments/enviroment';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  isDevMode,
+} from "@angular/core";
+
+import { DashboardService } from "../dashboard.service";
+import { environment } from "src/enviroments/enviroment";
+import { Card } from "./card";
 
 @Component({
-  selector: 'app-card-list',
-  templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.css']
+  selector: "app-card-list",
+  templateUrl: "./card-list.component.html",
+  styleUrls: ["./card-list.component.css"],
 })
 export class CardListComponent implements OnInit {
-  cards?: Card[];
+  cards: Card[];
   image: string;
-  apiKey: string = '';
-  constructor(private _service: DashboardService){
+  apiKey: string = "";
+  total: number = 0;
+  employed: number = 0;
+  unemployed: number = 0;
+  constructor(private _service: DashboardService) {
     this.image = `${environment.assets}/svg/job.svg`;
+    this.cards = [
+      {
+        name: "Alumni",
+      
+        icon: `${environment.assets}/img/graduate.png`,
+      },
+      {name: 'Employeed', icon: `${environment.assets}/img/work.png`},
+      {name: 'Unemployeed', icon: `${environment.assets}/img/work_off.png`},
+    ];
   }
 
   ngOnInit(): void {
-    this.cards = [
-      {name: 'Alumni', value: this.alumni$, icon: `${environment.assets}/img/graduate.png`},
-      {name: 'Employeed', value: this.employeed$, icon: `${environment.assets}/img/work.png`},
-      {name: 'Unemployeed', value: this.unEmployeed$, icon: `${environment.assets}/img/work_off.png`},
-    ];
-    this.emitValues();
-
-  }  
-
-  alumni$ = <Observable<Alumnus[]>>
-  this._service.getAlumni$;
-  
-  employeed$ = <Observable<Alumnus[]>>
-  this._service.getAlumniEmployeed$;
-
-  unEmployeed$ = <Observable<Alumnus[]>>
-  this._service.getAlumniUnemployeed$;
-
-  emitValues(): void{
-    this.employeed$.subscribe(data => this.assignEmployeed(data));
-    this.unEmployeed$.subscribe(data => this.assignUnemployeed(data));
+    this.getAlumni();
   }
 
-  assignEmployeed(data: Alumnus[]): number{
-   return data.length;   
+  getAlumni() {
+    this._service.getEmploymentStats().subscribe((data) => {
+      this.total =
+        data["gender_stats"]["Male"] + data["gender_stats"]["Female"];
+
+      this.employed = data['employment_stats']['Employed'];
+      this.unemployed = data['employment_stats']['Unemployed'];
+    });
   }
-  assignUnemployeed(data: Alumnus[]): number{
-    return data.length;   
-  }
+
 }

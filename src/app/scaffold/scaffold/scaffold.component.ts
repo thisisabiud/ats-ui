@@ -11,8 +11,10 @@ import { Observable } from 'rxjs';
 })
 export class ScaffoldComponent implements OnInit, AfterViewInit {
   items?: LinkItem[];
+
   @ViewChild('sidenav', {static: false}) sidenav!: MatSidenav;
-  user: any;
+  user: boolean = false;
+  username: string = '';
   // isLoggedIn$ = this.authService.isLoogedIn$;
 
   auth$!: Observable<boolean>;
@@ -31,8 +33,12 @@ export class ScaffoldComponent implements OnInit, AfterViewInit {
       // {icon: 'person', path: '/profile', title: 'Profile'},
     ];
     this.auth$ = this.authService.isLoggedIn$;
-   this.user = this.authService.userId;
+  //  this.user = this.authService.userId;
     // this.isLoggedIn$;
+    if(localStorage.getItem('token') != null){
+      this.user = true;
+      this.authService.getProfile().subscribe(data => this.username = data['user']['username']);
+    }
   }
 
   toggleSidenav(){

@@ -1,8 +1,33 @@
 <ng-container>
     <div class="list-wrapper">
-        <p *ngFor="let card of cards">
-            <app-card [card]="card"></app-card>
-        </p>
+        <mat-card>
+            <div class="left">
+                <img src="{{ cards[0].icon }}">
+            </div>
+            <div class="content">
+                <p>{{ cards[0].name }}</p>
+                <h1>{{ total }}</h1>
+            </div>
+        </mat-card>
+        <mat-card>
+            <div class="left">
+                <img src="{{ cards[1].icon }}">
+            </div>
+            <div class="content">
+                <p>{{ cards[1].name }}</p>
+                <h1>{{ employed }}</h1>
+            </div>
+        </mat-card>
+        <mat-card>
+            <div class="left">
+                <img src="{{ cards[2].icon }}">
+            </div>
+            <div class="content">
+                <p>{{ cards[2].name }}</p>
+                <h1>{{ unemployed }}</h1>
+            </div>
+        </mat-card>
+       
     </div>
 </ng-container>
 

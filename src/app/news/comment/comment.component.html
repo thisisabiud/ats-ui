@@ -1,7 +1,7 @@
 <div class="comment">
     <img src="assets/img/avatar.png" alt="user profile image">
     <div>
-        <p><span class="name">{{ comment?.author}}</span> <span class="time">{{comment?.pub_date | date}}</span></p>
+        <p><span class="name">@{{ comment?.author?.username}}</span> <span class="time">{{comment?.pub_date | date}}</span></p>
         <p class="content">{{ comment?.content}}</p>
     </div>
 </div>

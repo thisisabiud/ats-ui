@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Credentials } from './credentials';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, filter, map, tap } from 'rxjs/operators';
 import { environment } from 'src/enviroments/enviroment';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router, UrlTree } from '@angular/router';
@@ -13,24 +13,33 @@ import { Router, UrlTree } from '@angular/router';
 export class AuthService {
   private isLoggedInSubject = new BehaviorSubject<boolean>(false);
   isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
-  public userId?: number;
+  public username?: any;
 
 
   
   
   constructor( private http: HttpClient, private jwtHelper: JwtHelperService, private router: Router) {
     const token = localStorage.getItem('token');
-    this.getCurrentUserId();
+    // this.getCurrentUserId();
+    this.http.get<any>('http://45.79.31.232/accounts/profile').subscribe(data => this.username = data['user']['username']);
+   
+    
     
    }
 
-   getCurrentUserId(): any{
-    const token = localStorage.getItem('token');
-    if(token){
-      this.userId = new JwtHelperService().decodeToken(token)["user_id"];
-      // console.log(decoded);
-    }
-   }
+  //  getCurrentUserId(): any{
+  //   const token = localStorage.getItem('token');
+  //   if(token){
+  //     this.userId = new JwtHelperService().decodeToken(token)["user_id"];
+  //     // console.log(decoded);
+  //   }
+  //  }
+
+  getProfile(): Observable<any>{
+    return this.http.get<any>('http://45.79.31.232/accounts/profile');
+  }
+
+  
 
 
   authUrl = `${environment.baseUrl} + /accounts/get-token/`;

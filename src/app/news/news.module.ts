@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CreateNewsComponent } from './create-news/create-news.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TruncatePipe } from '../core/truncate.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { CommentsComponent } from './comments/comments.component';
@@ -37,7 +37,9 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     FormsModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ]
 })
