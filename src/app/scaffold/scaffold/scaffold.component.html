@@ -1,15 +1,14 @@
 <ng-container>
   <mat-toolbar color="primary">
-    <!-- <button *ngIf="auth$ | async" mat-icon-button (click)="toggleSidenav()"></button> -->
-    <button *ngIf="user" mat-icon-button (click)="toggleSidenav()">
+    <button *ngIf="authService.isLoggedIn$ | async" mat-icon-button (click)="toggleSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>Alumni Tracking System</span>
     <span class="spacer"></span>
-    <ng-container *ngIf="!user">
+    <ng-container *ngIf="!(authService.isLoggedIn$ | async)">
       <span class="welcome-note">Hello, stranger</span>
     </ng-container>
-    <ng-container *ngIf="user">
+    <ng-container *ngIf="authService.isLoggedIn$ | async">
       <span class="welcome-note">Welcome, {{ username }}</span>
       <button mat-icon-button (click)="goToProfile()">
         <mat-icon>person</mat-icon>
@@ -17,9 +16,8 @@
     </ng-container>
   </mat-toolbar>
   <mat-sidenav-container>
-    <!-- <mat-sidenav *ngIf="auth$ | async" class="sidenav" mode="side" #sidenav opened></mat-sidenav> -->
     <mat-sidenav
-      *ngIf="user"
+      *ngIf="authService.isLoggedIn$ | async"
       class="sidenav"
       mode="side"
       #sidenav

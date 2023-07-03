@@ -11,8 +11,9 @@ import { Router, UrlTree } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
-  isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
+  public isLoggedInSubject = new BehaviorSubject<boolean>(false);
+  public isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
+  loginError: boolean = false;
   public username?: any;
 
 
@@ -50,11 +51,13 @@ export class AuthService {
       localStorage.setItem('token', data.access);
       this.isLoggedInSubject.next(true);
       this.router.navigate(['/dashboard']);
+      this.loginError = false;
       return true;
     }),
     catchError((error) => {
       const errorMessage = 'Username and Password did not match.';
       console.error(errorMessage, error.message);
+      this.loginError = true;
       return of(false);
     })
    ) 

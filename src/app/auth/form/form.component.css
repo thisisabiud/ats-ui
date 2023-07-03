@@ -13,3 +13,8 @@
 mat-form-field{
     width: 40%;
 }
+
+.error{
+    color: red;
+    font-size: small;
+}

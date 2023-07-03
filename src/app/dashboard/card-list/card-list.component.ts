@@ -32,7 +32,7 @@ export class CardListComponent implements OnInit {
         icon: `${environment.assets}/img/graduate.png`,
       },
       {name: 'Employeed', icon: `${environment.assets}/img/work.png`},
-      {name: 'Unemployeed', icon: `${environment.assets}/img/work_off.png`},
+      {name: 'Unemployeed and Self-Employed', icon: `${environment.assets}/img/work_off.png`},
     ];
   }
 

@@ -5,13 +5,11 @@ import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './events.component';
 import { EventComponent } from './event/event.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
-import { EventCreateComponent } from './event-create/event-create.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { UpdateComponent } from './update/update.component';
-import { DeleteComponent } from './delete/delete.component';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -36,9 +34,6 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     EventsComponent,
     EventComponent,
     EventDetailComponent,
-    EventCreateComponent,
-    UpdateComponent,
-    DeleteComponent,
     SortByDatePipe,
     // TruncatePipe
   ],

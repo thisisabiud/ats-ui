@@ -12,7 +12,7 @@ export class FormComponent {
 
   @Output() submitEmitter = new EventEmitter();
   authForm: FormGroup;
-  constructor( private builder: FormBuilder, private authService: AuthService){
+  constructor( private builder: FormBuilder, public authService: AuthService){
     this.authForm = this.builder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]

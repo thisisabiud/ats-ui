@@ -19,7 +19,7 @@ export class ScaffoldComponent implements OnInit, AfterViewInit {
   // isLoggedIn$ = this.authService.isLoogedIn$;
 
   auth$!: Observable<boolean>;
-  constructor(private authService: AuthService, private router: Router){ 
+  constructor(public authService: AuthService, private router: Router){ 
   }
 
   ngOnInit(){
