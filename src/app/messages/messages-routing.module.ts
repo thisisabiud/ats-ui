@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    children: [{ path: ":id", component: MessageThreadComponent }],
+    children: [{ path: ":username", component: MessageThreadComponent }],
   },
 ];
 

@@ -1,6 +1,9 @@
 <app-scaffold>
   
   <ng-container display-content>
+    <div *ngIf="loader.isLoading | async" class="loader-conteiner">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
     <!-- <app-ng-dynamic-breadcrumb></app-ng-dynamic-breadcrumb> -->
     <router-outlet></router-outlet>
   </ng-container>

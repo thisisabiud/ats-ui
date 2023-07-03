@@ -20,6 +20,7 @@ import { BreadcumbComponent } from './core/breadcumb/breadcumb.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import tokenGetter from './core/token-getter';
 import { PagenotfoundComponent } from './core/pagenotfound/pagenotfound.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -37,6 +38,7 @@ import { PagenotfoundComponent } from './core/pagenotfound/pagenotfound.componen
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatProgressBarModule,
     // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false}),
     BrowserAnimationsModule,
     ScaffoldModule,
