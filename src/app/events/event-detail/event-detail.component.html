@@ -6,7 +6,7 @@
             <img class="border" src="{{ event.image}}" width="400px" height="200px" alt="">
             <div class="title-date">
                 <p class="date">
-                    {{ event.start_time | date }} from {{ event.start_time }} hours to {{ event.end_time }} hours.
+                    From {{ event.start_time | date }} hours to {{ event.end_time | date}} hours.
                 </p>
                 <h2>{{ event.name | titlecase }}</h2>
             </div>
@@ -17,15 +17,15 @@
             <p>
                 {{ event.description }}
             </p>
-            <p class="check-box">
+            <!-- <p class="check-box">
                 <span style="font-weight: bold;">Can Attend: </span>
                 <mat-checkbox></mat-checkbox>
-            </p>
+            </p> -->
         </div>
         
     </mat-card>
 
-    <div class="buttons">
+    <!-- <div class="buttons">
             <button mat-raised-button color="primary" [routerLink]="['update']" class="left-button">
                 Edit
             </button>       
@@ -33,7 +33,7 @@
             <button mat-raised-button color="warn" (click)="delete(event.id)">
               Delete
             </button> 
-    </div>    
+    </div>     -->
 </ng-container>
 
 <router-outlet></router-outlet>

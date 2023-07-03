@@ -10,11 +10,10 @@ import { Stats } from '../domain/stats.model';
 })
 export class DashboardService {
   private _alumniUrl = 'http://45.79.31.232/accounts/stats';
-  private _alumniUrl_yearly = 'http://45.79.31.232/accounts/yearly-stats';
+ 
 
   constructor(private _http: HttpClient) {
     _http.get(this._alumniUrl).subscribe(data => console.log(data));
-    _http.get(this._alumniUrl_yearly).subscribe(data => console.log(data));
    }
 
   getEmploymentStats(): Observable<any>{

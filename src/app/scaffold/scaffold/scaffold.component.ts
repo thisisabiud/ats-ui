@@ -3,6 +3,7 @@ import { LinkItem } from '../nav-link/link-item';
 import { AuthService } from 'src/app/auth/auth.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scaffold',
@@ -18,7 +19,7 @@ export class ScaffoldComponent implements OnInit, AfterViewInit {
   // isLoggedIn$ = this.authService.isLoogedIn$;
 
   auth$!: Observable<boolean>;
-  constructor(private authService: AuthService){ 
+  constructor(private authService: AuthService, private router: Router){ 
   }
 
   ngOnInit(){
@@ -39,6 +40,10 @@ export class ScaffoldComponent implements OnInit, AfterViewInit {
       this.user = true;
       this.authService.getProfile().subscribe(data => this.username = data['user']['username']);
     }
+  }
+
+  goToProfile(){
+    this.router.navigate(['/profile']);
   }
 
   toggleSidenav(){

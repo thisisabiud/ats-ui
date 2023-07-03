@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartType, ChartEvent } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { StatsService } from '../stats.service';
 
 
 @Component({
@@ -10,6 +11,28 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
   styleUrls: ['./alumni-sector-chart.component.css']
 })
 export class AlumniSectorChartComponent {
+
+  constructor(private service: StatsService) {}
+  ngOnInit() {
+    this.service.getStats().subscribe((data) => 
+    {
+      console.log(data);
+      
+    const government = data['employment_sector_stats']['Government'];
+    console.log(government);
+    
+    const privateSector = data['employment_sector_stats']['Private'];
+    console.log(privateSector);
+    
+    const self = data['employment_sector_stats']['Self Employed'];
+    console.log(self);
+
+
+    this.pieChartData.datasets[0].data = [ privateSector, government, self];
+    this.chart?.update();
+  }
+    );
+  }
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   // Pie
@@ -32,7 +55,7 @@ export class AlumniSectorChartComponent {
   public pieChartData: ChartData<'pie', number[], string | string[]> = {
     labels: [ [ 'Private' ], [ 'Government' ], ['Self', 'Employeed'] ],
     datasets: [ {
-      data: [ 300, 500, 100 ]
+      data: [ 0, 0, 0 ]
     } ]
   };
   public pieChartType: ChartType = 'pie';

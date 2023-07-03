@@ -26,7 +26,7 @@ export class NewsService {
     return this.http.get<CommentsInterface[]>(`${this.apiUrl}api/feed/${id}/comments`);
   }
 
-  postComment(comment: any, id: number): Observable<any>{
-    return this.http.post<any>(`${this.apiUrl}api/feed/${id}/comments/create/`, comment);
-  }
+  // postComment({content:}): Observable<any>{
+  //   return this.http.post<any>(`${this.apiUrl}api/feed/${id}/comments/create/`, comment);
+  // }
 }
