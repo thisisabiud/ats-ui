@@ -8,6 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "engines" : { 
+    "npm" : ">=8.0.0 <9.5.0",
+    "node" : ">=16.0.0 <18.15.0"
+  },
   "private": true,
   "dependencies": {
     "@angular-material-components/datetime-picker": "^9.0.0",
