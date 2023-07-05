@@ -29,6 +29,7 @@ export class EditProfileComponent implements OnInit {
   ) {
     this.profileForm = fb.group({
       email: ["", Validators.required],
+      id: [this.profileId$.value],
       employer: [""],
       position: [""],
       status: [""],
@@ -51,13 +52,14 @@ export class EditProfileComponent implements OnInit {
     const id = this.profileId$.value;
     var formData = new FormData();
 
-    formData.append("contact_email", this.profileForm.value.email);
-    formData.append("bio", this.profileForm.value.bio);
-    formData.append("current_employer", this.profileForm.value.employer);
-    formData.append("current_job_title", this.profileForm.value.position);
-    formData.append("current_location", this.profileForm.value.location);
-    formData.append("employment_status", this.profileForm.value.status);
-    formData.append("employment_sector", this.profileForm.value.sector);
+    formData.append("contact_email", this.profileForm.get('email')?.value);
+    formData.append("id",this.profileForm.get('id')?.value );
+    formData.append("bio", this.profileForm.get('bio')?.value);
+    formData.append("current_employer", this.profileForm.get('employer')?.value);
+    formData.append("current_job_title", this.profileForm.get('position')?.value);
+    formData.append("current_location", this.profileForm.get('location')?.value);
+    formData.append("employment_status", this.profileForm.get('status')?.value);
+    formData.append("employment_sector", this.profileForm.get('sector')?.value);
 
     this.http
       .patch<Profile>(`${this.profileUrl}/${id}/edit/`, formData)
