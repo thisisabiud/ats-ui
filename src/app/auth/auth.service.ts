@@ -21,7 +21,7 @@ export class AuthService {
   
   
   constructor( private http: HttpClient, private jwtHelper: JwtHelperService, private router: Router) {
-    const token = localStorage.getItem('token');
+    const token = window.localStorage.getItem('token');
     // this.getCurrentUserId();
     this.http.get<any>('http://45.79.31.232/accounts/profile').subscribe(data => {
       this.username = data['user']['username'];
@@ -31,15 +31,6 @@ export class AuthService {
       
       )}; 
     
-   
-
-  //  getCurrentUserId(): any{
-  //   const token = localStorage.getItem('token');
-  //   if(token){
-  //     this.userId = new JwtHelperService().decodeToken(token)["user_id"];
-  //     // console.log(decoded);
-  //   }
-  //  }
 
   getProfile(): Observable<any>{
     return this.http.get<any>('http://45.79.31.232/accounts/profile');
@@ -55,7 +46,7 @@ export class AuthService {
   login$(credentials: Credentials){
    return this.http.post<any>("http://45.79.31.232/accounts/get-token/", credentials).pipe(
     map((data) => { 
-      localStorage.setItem('token', data.access);
+      window.localStorage.setItem('token', data.access);
       this.isLoggedInSubject.next(true);
       this.router.navigate(['/dashboard']);
       this.loginError = false;
@@ -71,7 +62,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    const token = localStorage.getItem('token') ?? '';
+    const token = window.localStorage.getItem('token') ?? '';
     return !this.jwtHelper.isTokenExpired(token);
   }
 
@@ -80,7 +71,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    window.localStorage.removeItem('token');
     this.isLoggedInSubject.next(false);
     this.router.navigate(['/auth']);
   }

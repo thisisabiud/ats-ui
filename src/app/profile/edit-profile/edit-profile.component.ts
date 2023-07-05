@@ -5,6 +5,7 @@ import { ProfileService } from "../profile.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Location } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject } from "rxjs";
 
 @Component({
   selector: "app-edit-profile",
@@ -16,6 +17,8 @@ export class EditProfileComponent implements OnInit {
   sector: string[] = ["SELF EMPLOYED", "GOVERNMENT", "PRIVATE"];
   status: string[] = ["UNEMPLOYED", "EMPLOYED", "RETIRED"];
   profileForm: FormGroup;
+  public profileId$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
   profileUrl = "http://45.79.31.232/accounts/profile";
   constructor(
     private profileService: ProfileService,
@@ -37,6 +40,7 @@ export class EditProfileComponent implements OnInit {
   ngOnInit(): void {
     this.profileService.profileInfo$().subscribe((data) => {
       this.profile = data;
+      this.profileId$.next(data.id);
     });
   }
   back() {
@@ -44,10 +48,10 @@ export class EditProfileComponent implements OnInit {
   }
 
   update() {
-    // const id = this.profile?.id;
-    const id = 1;
-    const formData = new FormData();
-    formData.append("current_email", this.profileForm.value.email);
+    const id = this.profileId$.value;
+    var formData = new FormData();
+
+    formData.append("contact_email", this.profileForm.value.email);
     formData.append("bio", this.profileForm.value.bio);
     formData.append("current_employer", this.profileForm.value.employer);
     formData.append("current_job_title", this.profileForm.value.position);
@@ -56,11 +60,16 @@ export class EditProfileComponent implements OnInit {
     formData.append("employment_sector", this.profileForm.value.sector);
 
     this.http
-      .patch<any>(`${this.profileUrl}/${id}/edit`, formData)
-      .subscribe((res) => {
-        console.log(res);
-      });
-      console.log(this.profileForm.value);
-      
+      .patch<Profile>(`${this.profileUrl}/${id}/edit/`, formData)
+      .subscribe(
+        (res) => {
+          console.log(formData);
+
+          this.router.navigate(["profile"]);
+        },
+        (error) => {
+          console.log("Error ", error);
+        }
+      );
   }
 }

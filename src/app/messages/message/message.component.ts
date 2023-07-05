@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../chat.service';
+import { ProfileService } from 'src/app/profile/profile.service';
+import { Profile } from 'src/app/domain/profile.model';
 
 @Component({
   selector: 'app-message',

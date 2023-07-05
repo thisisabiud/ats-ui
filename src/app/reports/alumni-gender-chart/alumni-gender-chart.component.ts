@@ -43,7 +43,11 @@ export class AlumniGenderChartComponent implements OnInit{
     scales: {
       x: {},
       y: {
-        min: 0
+        min: 0,
+        ticks: {
+          stepSize: 1,
+          precision: 0
+        }
       }
     },
     plugins: {

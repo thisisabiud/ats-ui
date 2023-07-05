@@ -14,5 +14,6 @@ export class ProfileService{
   profileInfo$(): Observable<any>{
     return this.http.get<any>(this.profileUrl);
   }
-
+ 
+  
 }

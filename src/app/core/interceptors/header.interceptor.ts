@@ -17,8 +17,8 @@ export class HeaderInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     this.loaderService.isLoading.next(true);
-    const Authorization = localStorage.getItem("token")
-      ? `JWT ${localStorage.getItem("token")}`
+    const Authorization = window.localStorage.getItem("token")
+      ? `JWT ${window.localStorage.getItem("token")}`
       : "";
     // console.log(Authorization);
     req = req.clone({
