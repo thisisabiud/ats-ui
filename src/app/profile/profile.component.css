@@ -1,0 +1,30 @@
+.profile-header {
+  display: flex;
+  width: 100%;
+  margin: 2rem 1rem;
+  /* background-color: aqua; */
+}
+.edit-button{
+  float: right;
+}
+
+
+img {
+  width: 13vw;
+  height: 11hw;
+  border-radius: 100px;
+  opacity: 0.8;
+}
+.user-email {
+  color: rgb(169, 169, 169);
+  font-weight: 500;
+  margin-left: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+.content{
+    margin: 1rem 2rem;
+}
+.label{
+  font-weight: bold;
+}

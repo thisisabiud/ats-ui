@@ -1,1 +1,47 @@
-<p>profile works!</p>
+<button mat-icon-button class="edit-button" (click)="toEdit()"><mat-icon color="primary">edit</mat-icon></button>
+<h2>Profile</h2>
+<div class="profile-header">
+  <img
+    src="{{ profile?.avatar}}"
+    alt=""
+  />
+  <div class="user-email">
+    <p>{{ profile?.user?.username }}</p>
+    <p>{{ profile?.user?.email }}</p>
+  </div>
+</div>
+<mat-tab-group animationDuration="1000ms">
+  <mat-tab label="Personal Information"
+    ><div class="content">
+      <p>
+        <span class="label">Firstname : </span
+        >{{ profile?.user?.first_name | titlecase }}
+        {{ profile?.user?.last_name | titlecase }}
+      </p>
+      <p><span class="label">Email : </span>{{ profile?.contact_email }}</p>
+      <p><span class="label">Gender : </span>{{ gender }}</p>
+      <p>
+        <span class="label">Location : </span>{{ profile?.current_location }}
+      </p>
+      <p><span class="label">Bio : </span>{{ profile?.bio }}</p>
+    </div></mat-tab
+  >
+  <mat-tab label="Career Information"
+    ><div class="content">
+      <p><span class="label">Major : </span>{{ profile?.major }}</p>
+      <p>
+        <span class="label">Graduation Year : </span
+        >{{ profile?.graduation_year }}
+      </p>
+      
+    </div></mat-tab
+  >
+  <mat-tab label="Employment Information"
+    ><div class="content">
+      <p><span class="label">Status : </span>{{ profile?.employment_status }}</p>
+      <p><span class="label">Employer : </span>{{ profile?.current_employer }}</p>
+      <p><span class="label">Position : </span>{{ profile?.current_job_title }}</p>
+      <p><span class="label">Sector : </span>{{ profile?.employment_sector }}</p>
+    </div></mat-tab
+  >
+</mat-tab-group>
