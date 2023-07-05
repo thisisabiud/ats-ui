@@ -21,6 +21,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import tokenGetter from './core/token-getter';
 import { PagenotfoundComponent } from './core/pagenotfound/pagenotfound.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { TitlecasePipe } from './core/titlecase.pipe';
 
 
 
@@ -31,6 +32,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     AppComponent,
     BreadcumbComponent,
     PagenotfoundComponent,
+    TitlecasePipe,
   ],
   imports: [
     BrowserModule,
