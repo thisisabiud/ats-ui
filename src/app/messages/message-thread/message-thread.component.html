@@ -2,55 +2,30 @@
   <div class="thread">
     <mat-card class="thread-header">
       <img src="assets/img/graduate.png" matCardAvatar alt="" />
-      <p mat-card-title>Reciever's Name</p>
+      <p mat-card-title>{{currec}}</p>
     </mat-card>
-    <div class="texts-list">
-      <div class="sender">
-        <p>Sender testing</p>
-        <p class="time">11:00 pm</p>
-      </div>
-      <div class="reciever">
-        <p>Reciever testing</p>
-        <p class="time">11:02 pm</p>
-      </div>
-      <div class="sender">
-        <p>Sender testing</p>
-        <p class="time">11:00 pm</p>
-      </div>
-      <div class="reciever">
-        <p>Reciever testing</p>
-        <p class="time">11:02 pm</p>
-      </div>
-      <div class="sender">
-        <p>Sender testing</p>
-        <p class="time">11:00 pm</p>
-      </div>
-      <div class="reciever">
-        <p>Reciever testing</p>
-        <p class="time">11:02 pm</p>
-      </div>
-      <div class="sender">
-        <p>Sender testing</p>
-        <p class="time">11:00 pm</p>
-      </div>
-      <div class="reciever">
-        <p>Reciever testing</p>
-        <p class="time">11:02 pm</p>
-      </div>
-      <div class="sender">
-        <p>Sender testing</p>
-        <p class="time">11:00 pm</p>
-      </div>
-      <div class="reciever">
-        <p>Reciever testing</p>
-        <p class="time">11:02 pm</p>
+    <div *ngIf="messages.length === 0"  class="texts-list">
+      <div style="height: 100%; text-align: center;">No messages yet</div>
+     
+    </div>
+    <div *ngIf="messages.length !== 0" #containerElement class="texts-list">
+      <div style="height: 100%; text-align: center;">.</div>
+      <div *ngFor="let message of messages" class="msg-cont">
+        <div [ngClass]="{'sender': message.isMe, 'reciever': !message.isMe}">
+          <p>{{message.content}}</p>
+          <p class="time">{{message.created_at}}</p>
+        </div>
       </div>
     </div>
-    <div class="input">
-      <input matInput class="text" type="text" placeholder="Type a message" />
-      <button mat-icon-button class="send-button">
+    
+    <div class="form_down">
+    <form [formGroup]="messageForm" (ngSubmit)="sendMessage()" class="input">
+      <input matInput class="text" type="text" formControlName="message" placeholder="Type a message" />
+      <button mat-icon-button class="send-button" type="submit">
         <mat-icon>send</mat-icon>
       </button>
+    </form>
     </div>
+ 
   </div>
 </div>

@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { ChatService } from 'src/app/messages/chat.service';
 
 @Component({
   selector: 'app-scaffold',
@@ -15,11 +16,12 @@ export class ScaffoldComponent implements OnInit, AfterViewInit {
 
   @ViewChild('sidenav', {static: false}) sidenav!: MatSidenav;
   user: boolean = false;
-  username: string = '';
+  public username: string = '';
   // isLoggedIn$ = this.authService.isLoogedIn$;
 
   auth$!: Observable<boolean>;
-  constructor(public authService: AuthService, private router: Router){ 
+  constructor(public authService: AuthService, private router: Router){
+
   }
 
   ngOnInit(){
@@ -56,6 +58,10 @@ export class ScaffoldComponent implements OnInit, AfterViewInit {
   }
   logout(){
     this.authService.logout();
+  }
+
+  get name(){
+    return this.username;
   }
 
 }

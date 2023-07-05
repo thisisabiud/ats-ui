@@ -15,6 +15,7 @@ export class AuthService {
   public isLoggedIn$: Observable<boolean> = this.isLoggedInSubject.asObservable();
   loginError: boolean = false;
   public username?: any;
+  static uname: string;
 
 
   
@@ -22,11 +23,15 @@ export class AuthService {
   constructor( private http: HttpClient, private jwtHelper: JwtHelperService, private router: Router) {
     const token = localStorage.getItem('token');
     // this.getCurrentUserId();
-    this.http.get<any>('http://45.79.31.232/accounts/profile').subscribe(data => this.username = data['user']['username']);
+    this.http.get<any>('http://45.79.31.232/accounts/profile').subscribe(data => {
+      this.username = data['user']['username'];
+      AuthService.uname = this.username;
+    
+    }
+      
+      )}; 
+    
    
-    
-    
-   }
 
   //  getCurrentUserId(): any{
   //   const token = localStorage.getItem('token');
@@ -40,7 +45,9 @@ export class AuthService {
     return this.http.get<any>('http://45.79.31.232/accounts/profile');
   }
 
-  
+  static get userProfName(): string{
+    return this.uname;
+  }
 
 
   authUrl = `${environment.baseUrl} + /accounts/get-token/`;

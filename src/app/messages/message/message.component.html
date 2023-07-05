@@ -1,26 +1,13 @@
 <div>
-  <a [routerLink]="['faraja']">
-    <mat-list-item>
-      <img matListItemAvatar src="{{ 'assets/img/graduate.png' }}" alt="" />
-      <p matListItemTitle>Faraja</p>
-      <p matListItemLine>The last message</p>
-    </mat-list-item>
-  </a>
-  <mat-divider></mat-divider>
-  <a href="">
-    <mat-list-item>
-      <img matListItemAvatar src="{{ 'assets/img/graduate.png' }}" alt="" />
-      <p matListItemTitle>Reciever 2</p>
-      <p matListItemLine>The last message</p>
-    </mat-list-item>
-  </a>
-  <mat-divider></mat-divider>
-  <a href="">
-    <mat-list-item>
-      <img matListItemAvatar src="{{ 'assets/img/graduate.png' }}" alt="" />
-      <p matListItemTitle>Reciever 3</p>
-      <p matListItemLine>The last message</p>
-    </mat-list-item>
-  </a>
-  <mat-divider></mat-divider>
+  <div *ngFor="let sender of messages | keyvalue">
+    <a [routerLink]="[sender.key]"  [state]="{ messages: sender.value.messages }">
+      <mat-list-item>
+        <img matListItemAvatar src="{{ 'assets/img/graduate.png' }}" alt="" />
+        <p matListItemTitle>{{sender.key}}</p>
+        <p matListItemLine>{{ sender.value.messages[sender.value.messages.length - 1].content }}</p>
+      </mat-list-item>
+    </a>
+    <mat-divider></mat-divider>
+  </div>
+
 </div>
