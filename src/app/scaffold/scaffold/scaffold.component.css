@@ -36,4 +36,11 @@ mat-toolbar{
     text-align: left;
 }
 
+.search-button{
+    margin-left: -2em;
+}
+/* 
+button{
+    padding-right: .5em;
+} */
 

@@ -1,14 +1,35 @@
 <ng-container>
   <mat-toolbar color="primary">
-    <button *ngIf="authService.isLoggedIn$ | async" mat-icon-button (click)="toggleSidenav()">
+    <button
+      *ngIf="authService.isLoggedIn$ | async"
+      mat-icon-button
+      (click)="toggleSidenav()"
+    >
       <mat-icon>menu</mat-icon>
     </button>
     <span>Alumni Tracking System</span>
     <span class="spacer"></span>
     <ng-container *ngIf="!(authService.isLoggedIn$ | async)">
+      <!-- <form action="" [formGroup]="searchForm" (ngSubmit)="search()">
+        <mat-form-field>
+          <input formControlName="query" placeholder="search" type="text" />
+        </mat-form-field>
+        <button class="search-button" type="submit" mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+      </form> -->
+
       <span class="welcome-note">Hello, stranger</span>
     </ng-container>
     <ng-container *ngIf="authService.isLoggedIn$ | async">
+      <form action="" [formGroup]="searchForm" (ngSubmit)="search()">
+        <mat-form-field>
+          <input formControlName="query" placeholder="search" type="text" />
+        </mat-form-field>
+        <button class="search-button" type="submit" mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+      </form>
       <span class="welcome-note">Welcome, {{ username }}</span>
       <button mat-icon-button (click)="goToProfile()">
         <mat-icon>person</mat-icon>
