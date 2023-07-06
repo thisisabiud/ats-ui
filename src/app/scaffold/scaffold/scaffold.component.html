@@ -22,14 +22,14 @@
       <span class="welcome-note">Hello, stranger</span>
     </ng-container>
     <ng-container *ngIf="authService.isLoggedIn$ | async">
-      <form action="" [formGroup]="searchForm" (ngSubmit)="search()">
+      <!-- <form action="" [formGroup]="searchForm" (ngSubmit)="search()">
         <mat-form-field>
           <input formControlName="query" placeholder="search" type="text" />
         </mat-form-field>
         <button class="search-button" type="submit" mat-icon-button>
           <mat-icon>search</mat-icon>
         </button>
-      </form>
+      </form> -->
       <span class="welcome-note">Welcome, {{ username }}</span>
       <button mat-icon-button (click)="goToProfile()">
         <mat-icon>person</mat-icon>
