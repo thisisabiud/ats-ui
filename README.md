@@ -9,7 +9,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Installation
 
 1. If you have docker installed on your system you can simply run `docker compose up` to this project folder to run this application. 
-2. Otherwise you will have to install node in your machine and run `npm install --legacy-peer-deps` to this project folder to run this application.
+2. Otherwise you will have to install node in your machine and run `npm install --legacy-peer-deps` to this project folder to run this application. Since the following files are ignored to save space on **CD** and use small space on github and docker: 
+- .vscode
+- .idea
+- node_modules
+- .angular
 
 ---
 
